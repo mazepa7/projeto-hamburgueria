@@ -1,0 +1,255 @@
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Carrinho | BurgerHouse</title>
+
+        <!-- Fonte Poppins -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet">
+
+        <!-- CSS principal -->
+        <link rel="stylesheet" href="assets/style.css">
+
+        <!-- CSS específico do carrinho -->
+        <link rel="stylesheet" href="assets/carrinho.css">
+
+    </head>
+
+
+    <body>
+
+
+        <!-- ==============================
+            CABEÇALHO
+        ============================== -->
+
+        <header>
+
+            <div class="logo">
+                🍔 BurgerHouse
+            </div>
+
+
+            <nav>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="cardapio.html">
+                    Cardápio
+                </a>
+
+                <a href="sobre.html">
+                    Sobre
+                </a>
+
+                <a href="contato.html">
+                    Contato
+                </a>
+
+                <a href="login.html">
+                    Login
+                </a>
+
+                <a href="carrinho.html" class="carrinho-link">
+                    🛒 Carrinho
+                    <span id="contadorCarrinho">0</span>
+                </a>
+
+            </nav>
+
+        </header>
+
+
+
+        <!-- ==============================
+            CONTEÚDO PRINCIPAL
+        ============================== -->
+
+        <main class="carrinho-container">
+
+
+            <section class="carrinho">
+
+
+                <div class="titulo-carrinho">
+
+                    <h1>
+                        Seu Carrinho
+                    </h1>
+
+                    <p>
+                        Confira seus produtos antes de finalizar o pedido.
+                    </p>
+
+                </div>
+
+
+
+                <!-- ==============================
+                    CARRINHO VAZIO
+                ============================== -->
+
+                <div id="carrinhoVazio" class="carrinho-vazio">
+
+                    <div class="icone-vazio">
+                        🛒
+                    </div>
+
+                    <h2>
+                        Seu carrinho está vazio
+                    </h2>
+
+                    <p>
+                        Você ainda não adicionou nenhum produto.
+                    </p>
+
+                    <a href="cardapio.html" class="btn-continuar">
+                        Ver Cardápio
+                    </a>
+
+                </div>
+
+
+
+                <!-- ==============================
+                    LISTA DE PRODUTOS
+                ============================== -->
+
+                <div id="listaCarrinho" class="lista-carrinho">
+
+                    <!--
+
+                        Os produtos serão inseridos
+                        automaticamente pelo JavaScript.
+
+                        Exemplo:
+
+                        <div class="item-carrinho">
+
+                            <img src="...">
+
+                            <div class="info-produto">
+                                <h3>Classic Burger</h3>
+                                <p>R$ 29,90</p>
+                            </div>
+
+                            <div class="quantidade">
+                                <button>-</button>
+                                <span>1</span>
+                                <button>+</button>
+                            </div>
+
+                            <strong>R$ 29,90</strong>
+
+                            <button class="remover">
+                                🗑️
+                            </button>
+
+                        </div>
+
+                    -->
+
+                </div>
+
+
+
+                <!-- ==============================
+                    RESUMO DO PEDIDO
+                ============================== -->
+
+                <div id="resumoPedido" class="resumo-pedido">
+
+
+                    <div class="linha-resumo">
+
+                        <span>
+                            Subtotal
+                        </span>
+
+                        <strong id="subtotal">
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="linha-resumo">
+
+                        <span>
+                            Taxa
+                        </span>
+
+                        <strong>
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="linha-total">
+
+                        <span>
+                            Total
+                        </span>
+
+                        <strong id="totalCarrinho">
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="acoes-carrinho">
+
+                        <a href="cardapio.html" class="btn-continuar">
+                            ← Continuar comprando
+                        </a>
+
+                        <button id="finalizarPedido" class="btn-finalizar">
+                            Finalizar Pedido
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+
+        <!-- ==============================
+            RODAPÉ
+        ============================== -->
+
+        <footer>
+
+            <p>
+                © 2026 BurgerHouse - Todos os direitos reservados.
+            </p>
+
+        </footer>
+
+
+
+        <!-- ==============================
+            JAVASCRIPT
+        ============================== -->
+
+        <script src="scripts/carrinho.js"></script>
+
+    </body>
+
+    </html>

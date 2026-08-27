@@ -1,0 +1,475 @@
+/* ==============================
+   CONFIGURAÇÕES GERAIS
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+body {
+    background-color: #111;
+    color: white;
+    min-height: 100vh;
+}
+
+
+/* ==============================
+   CABEÇALHO
+============================== */
+
+header {
+    width: 100%;
+    background-color: #050505;
+
+    padding: 25px 8%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+
+/* LOGO */
+
+.logo a {
+    color: #D62828;
+    text-decoration: none;
+
+    font-size: 30px;
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.logo a:hover {
+    color: #ffb000;
+}
+
+
+/* NAVBAR */
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ffb000;
+}
+
+
+/* LINK ATIVO */
+
+nav a.ativo {
+    color: #ffb000;
+}
+
+
+/* ==============================
+   BANNER
+============================== */
+
+.banner {
+    min-height: 300px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.85)
+        ),
+        url("../img/banner-hamburguer.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+
+.banner h1 {
+    font-size: 48px;
+    color: #ffb000;
+
+    margin-bottom: 10px;
+
+    animation: aparecer 0.8s ease;
+}
+
+
+.banner p {
+    color: #ddd;
+    font-size: 18px;
+
+    animation: aparecer 1s ease;
+}
+
+
+/* ==============================
+   ÁREA DE CONTATO
+============================== */
+
+.contato {
+    width: 85%;
+    max-width: 1200px;
+
+    margin: 70px auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 50px;
+}
+
+
+/* ==============================
+   INFORMAÇÕES
+============================== */
+
+.informacoes {
+    background-color: #1b1b1b;
+
+    padding: 40px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.4);
+
+    border: 1px solid #292929;
+}
+
+
+.informacoes h2 {
+    color: #ffb000;
+
+    font-size: 30px;
+
+    margin-bottom: 30px;
+}
+
+
+.informacoes p {
+    color: #ccc;
+
+    font-size: 16px;
+
+    margin-bottom: 18px;
+
+    line-height: 1.6;
+}
+
+
+/* DESTACA HORÁRIOS */
+
+.informacoes p:nth-last-child(2),
+.informacoes p:last-child {
+    color: #aaa;
+    font-size: 15px;
+}
+
+
+/* ==============================
+   FORMULÁRIO
+============================== */
+
+.formulario {
+    background-color: #1b1b1b;
+
+    padding: 40px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.4);
+
+    border: 1px solid #292929;
+}
+
+
+.formulario h2 {
+    color: #ffb000;
+
+    font-size: 30px;
+
+    margin-bottom: 30px;
+}
+
+
+/* ==============================
+   INPUTS
+============================== */
+
+#formContato {
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+#formContato input,
+#formContato textarea {
+    width: 100%;
+
+    padding: 15px 18px;
+
+    border: 1px solid #333;
+
+    border-radius: 10px;
+
+    background-color: #111;
+
+    color: white;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.3s;
+
+    resize: none;
+}
+
+
+/* PLACEHOLDER */
+
+#formContato input::placeholder,
+#formContato textarea::placeholder {
+    color: #777;
+}
+
+
+/* INPUT FOCADO */
+
+#formContato input:focus,
+#formContato textarea:focus {
+    border-color: #ffb000;
+
+    box-shadow:
+        0 0 10px rgba(255, 176, 0, 0.15);
+}
+
+
+/* ==============================
+   BOTÃO
+============================== */
+
+#formContato button {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background-color: #ffb000;
+
+    color: #111;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+#formContato button:hover {
+    background-color: #ffcc55;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(255, 176, 0, 0.25);
+}
+
+
+#formContato button:active {
+    transform: scale(0.98);
+}
+
+
+/* ==============================
+   RESULTADO DO FORMULÁRIO
+============================== */
+
+#resultado {
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: #ffb000;
+
+    font-size: 15px;
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer {
+    width: 100%;
+
+    background-color: #050505;
+
+    text-align: center;
+
+    padding: 25px;
+
+    margin-top: 50px;
+
+    color: #888;
+
+    font-size: 14px;
+}
+
+
+/* ==============================
+   ANIMAÇÃO
+============================== */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ==============================
+   TABLET
+============================== */
+
+@media (max-width: 900px) {
+
+    header {
+        padding: 20px 5%;
+    }
+
+    .contato {
+        width: 90%;
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .banner h1 {
+        font-size: 40px;
+    }
+
+}
+
+
+/* ==============================
+   CELULAR
+============================== */
+
+@media (max-width: 600px) {
+
+    header {
+        flex-direction: column;
+
+        gap: 20px;
+
+        padding: 20px;
+    }
+
+
+    .logo a {
+        font-size: 26px;
+    }
+
+
+    nav {
+        gap: 15px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+
+    nav a {
+        font-size: 14px;
+    }
+
+
+    .banner {
+        min-height: 250px;
+
+        padding: 40px 20px;
+    }
+
+
+    .banner h1 {
+        font-size: 32px;
+    }
+
+
+    .banner p {
+        font-size: 15px;
+    }
+
+
+    .contato {
+        width: 92%;
+
+        margin: 40px auto;
+    }
+
+
+    .informacoes,
+    .formulario {
+        padding: 25px;
+    }
+
+
+    .informacoes h2,
+    .formulario h2 {
+        font-size: 25px;
+    }
+
+
+    footer {
+        font-size: 12px;
+    }
+
+}

@@ -1,0 +1,202 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#F8F8F8;
+    color:#222;
+}
+
+header{
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.logo a{
+    color:#D62828;
+    text-decoration:none;
+    font-size:30px;
+    font-weight:700;
+}
+
+nav{
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#222;
+    transition:.3s;
+}
+
+nav a:hover,
+.ativo{
+    color:#D62828;
+}
+
+.banner{
+    background:#D62828;
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.banner h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.banner p{
+    font-size:20px;
+}
+
+.historia {
+
+    position: relative;
+
+    min-height: 600px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 80px 8%;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.60),
+            rgba(0, 0, 0, 0.60)
+        ),
+        url("../img/banners/Restaurante-Aborgue.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+}
+
+
+.texto {
+
+    max-width: 700px;
+
+    text-align: center;
+
+    color: white;
+
+}
+
+
+.texto h2 {
+
+    color: #D62828;
+
+    font-size: 38px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.texto p {
+
+    margin-bottom: 20px;
+
+    line-height: 1.8;
+
+    font-size: 17px;
+
+}
+
+.texto h2{
+    color:#D62828;
+    margin-bottom:20px;
+}
+
+.texto p{
+    margin-bottom:20px;
+    line-height:1.8;
+}
+
+.imagem{
+    flex:1;
+}
+
+.imagem img{
+    width:100%;
+    border-radius:15px;
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+}
+
+.valores{
+    padding:80px 8%;
+    text-align:center;
+}
+
+.valores h2{
+    margin-bottom:40px;
+    color:#D62828;
+}
+
+.cards{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:300px;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.numeros{
+    background:white;
+    padding:70px;
+    text-align:center;
+}
+
+.numeros h2{
+    color:#D62828;
+    margin-bottom:40px;
+}
+
+.contador{
+    display:flex;
+    justify-content:center;
+    gap:80px;
+    flex-wrap:wrap;
+}
+
+.numero{
+    font-size:48px;
+    font-weight:700;
+    color:#D62828;
+}
+
+footer{
+    background:#D62828;
+    color:white;
+    text-align:center;
+    padding:25px;
+}

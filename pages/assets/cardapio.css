@@ -1,0 +1,345 @@
+/* ==============================
+   RESET
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #111111;
+}
+
+
+/* ==============================
+   CABEÇALHO
+============================== */
+
+header {
+    width: 100%;
+    padding: 20px 60px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #D62828;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+header h1 {
+    font-size: 28px;
+    color: #fff;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+
+    font-size: 16px;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #111;
+}
+
+
+/* ==============================
+   TÍTULO DO CARDÁPIO
+============================== */
+
+.titulo-cardapio {
+    text-align: center;
+
+    padding: 60px 20px 40px;
+}
+
+.titulo-cardapio h2 {
+    font-size: 42px;
+
+    color: #111111;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.titulo-cardapio p {
+    margin-top: 15px;
+
+    color: #555555;
+
+    font-size: 18px;
+}
+
+
+/* ==============================
+   CONTAINER DOS CARDS
+============================== */
+
+.container-cardapio {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 0 auto 60px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+
+/* ==============================
+   CARD
+============================== */
+
+.card-produto {
+    background-color: #ffffff;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    border: 1px solid #dddddd;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+    transition: 0.3s;
+}
+
+.card-produto:hover {
+    transform: translateY(-8px);
+
+    border-color: #D62828;
+
+    box-shadow: 0 10px 25px rgba(230, 57, 0, 0.25);
+}
+
+
+/* ==============================
+   IMAGEM
+============================== */
+
+.card-produto img {
+    width: 100%;
+    height: 280px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* ==============================
+   INFORMAÇÕES
+============================== */
+
+.informacoes {
+    padding: 20px;
+}
+
+.informacoes h3 {
+    color: #111111;
+
+    font-size: 23px;
+
+    margin-bottom: 10px;
+}
+
+.informacoes p {
+    color: #555555;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    min-height: 70px;
+}
+
+
+/* ==============================
+   PREÇO
+============================== */
+
+.preco {
+    display: block;
+
+    margin-top: 15px;
+
+    font-size: 22px;
+
+    color: #D62828;
+
+    font-weight: bold;
+}
+
+
+/* ==============================
+   BOTÃO
+============================== */
+
+.card-produto button {
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background-color: #D62828;
+
+    color: #fff;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.card-produto button:hover {
+    background-color: #111111;
+
+    color: #fff;
+}
+
+/* ==============================
+   DIVISÓRIA DAS CATEGORIAS
+============================== */
+
+.categoria {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0 40px;
+}
+
+
+/* Linha + título */
+
+.divisoria {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    margin: 50px 0 40px;
+}
+
+
+/* Linhas laterais */
+
+.divisoria span {
+    height: 2px;
+    width: 100px;
+
+    background-color: #D62828;
+
+    border-radius: 10px;
+}
+
+
+/* Título */
+
+.divisoria h2 {
+    color: #D62828;
+
+    font-size: 28px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+}
+
+
+/* Pequeno efeito ao passar o mouse */
+
+.divisoria h2:hover {
+    color: #111111;
+
+    transition: 0.3s;
+}
+
+
+/* ==============================
+   RODAPÉ
+============================== */
+
+footer {
+    text-align: center;
+
+    padding: 25px;
+
+    background-color: #1c1c1c;
+
+    color: #aaa;
+
+    font-size: 14px;
+}
+
+
+/* ==============================
+   RESPONSIVIDADE
+============================== */
+
+@media (max-width: 900px) {
+
+    header {
+        padding: 20px 30px;
+    }
+
+    .container-cardapio {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    header {
+        flex-direction: column;
+
+        gap: 15px;
+
+        padding: 20px;
+    }
+
+    nav {
+        gap: 20px;
+    }
+
+    .titulo-cardapio h2 {
+        font-size: 32px;
+    }
+
+    .titulo-cardapio p {
+        font-size: 16px;
+    }
+
+    .container-cardapio {
+        grid-template-columns: 1fr;
+    }
+
+}

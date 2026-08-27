@@ -1,0 +1,337 @@
+/* ==============================
+   CONFIGURAÇÕES GERAIS
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+
+    background-color: #111;
+
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+}
+
+
+/* ==============================
+   CARD DE CADASTRO
+============================== */
+
+.login-box {
+    width: 100%;
+    max-width: 450px;
+
+    background-color: #1b1b1b;
+
+    padding: 60px;
+
+    border-radius: 20px;
+
+    border: 1px solid #292929;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.6);
+
+    animation: aparecer 0.8s ease;
+}
+
+/* ==============================
+   LINK DE CADASTRO
+============================== */
+
+.cadastro-link {
+    text-align: center;
+
+    margin-top: 18px;
+
+    color: #888;
+
+    font-size: 13px;
+
+    font-weight: 400;
+}
+
+
+
+
+/* ==============================
+   LOGO
+============================== */
+
+.login-box h1 {
+    margin-bottom: 5px;
+}
+
+.login-box h1 a {
+    color: #D62828;
+
+    text-decoration: none;
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.login-box h1 a:hover {
+    color: #ff4444;
+}
+
+
+/* ==============================
+   TÍTULO
+============================== */
+
+.login-box h2 {
+    color: white;
+
+    font-size: 24px;
+
+    font-weight: 600;
+
+    margin-bottom: 25px;
+}
+
+
+/* ==============================
+   FORMULÁRIO
+============================== */
+
+#formCadastro {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+/* ==============================
+   LABELS
+============================== */
+
+#formCadastro label {
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    margin-bottom: -10px;
+}
+
+
+/* ==============================
+   INPUTS
+============================== */
+
+#formCadastro input {
+    width: 100%;
+
+    padding: 16px 18px;
+
+    background-color: #111;
+
+    color: white;
+
+    border: 1px solid #333;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+
+#formCadastro input::placeholder {
+    color: #777;
+}
+
+
+#formCadastro input:focus {
+    border-color: #D62828;
+
+    box-shadow:
+        0 0 10px rgba(214, 40, 40, 0.2);
+}
+
+
+/* ==============================
+   BOTÃO
+============================== */
+
+#formCadastro button {
+    width: 100%;
+
+    padding: 16px;
+
+    margin-top: 12px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background-color: #D62828;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+#formCadastro button:hover {
+    background-color: #b71f1f;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(214, 40, 40, 0.3);
+}
+
+
+#formCadastro button:active {
+    transform: scale(0.98);
+}
+
+
+/* ==============================
+   MENSAGEM
+============================== */
+
+#mensagem {
+    text-align: center;
+
+    margin-top: 20px;
+
+    color: #D62828;
+
+    font-size: 14px;
+}
+
+
+/* ==============================
+   TEXTO "JÁ POSSUI UMA CONTA?"
+============================== */
+
+.login-box p {
+    text-align: center;
+
+    margin-top: 18px;
+
+    color: #aaa;
+
+    font-size: 14px;
+}
+
+
+/* ==============================
+   LINKS
+============================== */
+
+a,
+a:visited,
+a:active {
+    color: #D62828;
+
+    text-decoration: none;
+}
+
+
+a:hover {
+    color: #ff4444;
+}
+
+
+/* ==============================
+   VOLTAR
+============================== */
+
+.voltar {
+    display: block;
+
+    margin-top: 20px;
+
+    color: #D62828;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    text-align: center;
+
+    transition: 0.3s;
+}
+
+
+.voltar:hover {
+    color: #ff4444;
+
+    text-decoration: underline;
+}
+
+
+/* ==============================
+   ANIMAÇÃO
+============================== */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ==============================
+   CELULAR
+============================== */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .login-box {
+        padding: 35px 25px;
+    }
+
+    .login-box h1 a {
+        font-size: 27px;
+    }
+
+    .login-box h2 {
+        font-size: 22px;
+    }
+
+}

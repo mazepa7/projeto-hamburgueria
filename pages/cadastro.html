@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro | BurgerHouse</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/cadastro.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="login-box">
+
+        <h1>
+            <a href="index.html">🍔 BurgerHouse</a>
+        </h1>
+
+        <h2>Criar conta</h2>
+
+        <form id="formCadastro">
+
+            <label for="nome">Nome</label>
+            <input 
+                type="text" 
+                id="nome" 
+                placeholder="Digite seu nome"
+            >
+
+            <label for="email">Email</label>
+            <input 
+                type="email" 
+                id="email" 
+                placeholder="Digite seu email"
+            >
+
+            <label for="senha">Senha</label>
+            <input 
+                type="password" 
+                id="senha" 
+                placeholder="Digite sua senha"
+            >
+
+            <label for="confirmarSenha">Confirmar senha</label>
+            <input 
+                type="password" 
+                id="confirmarSenha" 
+                placeholder="Confirme sua senha"
+            >
+
+            <button type="submit">
+                Cadastrar
+            </button>
+
+        </form>
+
+        <p id="mensagem"></p>
+
+        <p>
+            Já possui uma conta?
+            <a href="login.html">Entrar</a>
+        </p>
+
+        <a href="index.html" class="voltar">
+            ← Voltar para o início
+        </a>
+
+    </div>
+
+</div>
+
+<script src="scripts/cadastro.js"></script>
+
+</body>
+</html>
