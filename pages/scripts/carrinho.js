@@ -342,40 +342,252 @@ listaCarrinho.addEventListener("click", function(event) {
 // FINALIZAR PEDIDO
 // ========================================
 
-finalizarPedido.addEventListener("click", function() {
+// ========================================
+// VIAS DO PEDIDO
+// ========================================
 
-    if (carrinho.length === 0) {
+const pedidoConcluido = document.getElementById("pedidoConcluido");
+const identificacaoPedido = document.getElementById("identificacaoPedido");
 
-        alert("Seu carrinho está vazio!");
+const baixarTxt = document.getElementById("baixarTxt");
+const baixarCsv = document.getElementById("baixarCsv");
 
+let ultimoPedido = JSON.parse(
+    localStorage.getItem("ultimoPedido")
+) || null;
+
+
+// Trabalha com centavos para calcular os valores
+function calcularSubtotalCentavos(produto) {
+    return Math.round(produto.preco * 100) * produto.quantidade;
+}
+
+
+// Exibe os botões do pedido salvo
+function mostrarPedidoConcluido() {
+    if (!ultimoPedido) {
         return;
     }
 
+    identificacaoPedido.textContent =
+        `Pedido ${ultimoPedido.id} — ` +
+        new Date(ultimoPedido.data).toLocaleString("pt-BR");
 
-    let total = 0;
+    pedidoConcluido.hidden = false;
+}
 
-    carrinho.forEach(produto => {
 
-        total +=
-            produto.preco * produto.quantidade;
-
+// Cria um arquivo e inicia seu download
+function baixarArquivo(nome, conteudo, tipo) {
+    const arquivo = new Blob([conteudo], {
+        type: tipo
     });
 
+    const url = URL.createObjectURL(arquivo);
+    const link = document.createElement("a");
 
-    alert(
-        "Pedido realizado com sucesso!\n\n" +
-        "Total: " + formatarPreco(total)
+    link.href = url;
+    link.download = nome;
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    setTimeout(() => {
+        URL.revokeObjectURL(url);
+    }, 1000);
+}
+
+
+// ========================================
+// GERAR TXT
+// ========================================
+
+function gerarTxt(pedido) {
+    const linhas = [
+        "BURGER HOUSE - VIA DO PEDIDO",
+        "Comprovante sem valor fiscal",
+        "",
+        `Pedido: ${pedido.id}`,
+        `Data: ${new Date(pedido.data).toLocaleString("pt-BR")}`,
+        "",
+        "ITENS DO PEDIDO",
+        ""
+    ];
+
+    pedido.itens.forEach(produto => {
+        const subtotal = calcularSubtotalCentavos(produto) / 100;
+
+        linhas.push(
+            `${produto.quantidade}x ${produto.nome}`,
+            `Unitário: ${formatarPreco(produto.preco)}`,
+            `Subtotal: ${formatarPreco(subtotal)}`,
+            ""
+        );
+    });
+
+    linhas.push(
+        `Taxa: ${formatarPreco(pedido.taxaCentavos / 100)}`,
+        `TOTAL: ${formatarPreco(pedido.totalCentavos / 100)}`,
+        "",
+        "Obrigado pelo pedido!"
     );
 
+    return linhas.join("\r\n");
+}
 
-    // Limpa o carrinho
+
+// ========================================
+// GERAR CSV
+// ========================================
+
+// Protege os campos e trata aspas dentro do texto
+function escaparCampoCsv(valor) {
+    let texto = String(valor);
+
+    // Evita que textos sejam interpretados como fórmulas
+    if (/^\s*[=+\-@]/.test(texto)) {
+        texto = "'" + texto;
+    }
+
+    return '"' + texto.replace(/"/g, '""') + '"';
+}
+
+
+function gerarCsv(pedido) {
+    const data = new Date(pedido.data).toLocaleString("pt-BR");
+
+    const linhas = [
+        [
+            "Pedido",
+            "Data",
+            "Produto",
+            "Quantidade",
+            "Preco_unitario",
+            "Subtotal"
+        ]
+    ];
+
+    pedido.itens.forEach(produto => {
+        linhas.push([
+            pedido.id,
+            data,
+            produto.nome,
+            produto.quantidade,
+            produto.preco.toFixed(2).replace(".", ","),
+            (calcularSubtotalCentavos(produto) / 100)
+                .toFixed(2)
+                .replace(".", ",")
+        ]);
+    });
+
+    linhas.push([
+        pedido.id,
+        data,
+        "Taxa",
+        "",
+        "",
+        (pedido.taxaCentavos / 100).toFixed(2).replace(".", ",")
+    ]);
+
+    linhas.push([
+        pedido.id,
+        data,
+        "TOTAL DO PEDIDO",
+        "",
+        "",
+        (pedido.totalCentavos / 100).toFixed(2).replace(".", ",")
+    ]);
+
+    const conteudo = linhas
+        .map(linha => linha.map(escaparCampoCsv).join(";"))
+        .join("\r\n");
+
+    // BOM ajuda o Excel a reconhecer os acentos
+    return "\uFEFF" + conteudo;
+}
+
+
+// ========================================
+// BOTÕES DE DOWNLOAD
+// ========================================
+
+baixarTxt.addEventListener("click", function() {
+    if (!ultimoPedido) {
+        return;
+    }
+
+    baixarArquivo(
+        `pedido-${ultimoPedido.id}.txt`,
+        gerarTxt(ultimoPedido),
+        "text/plain;charset=utf-8"
+    );
+});
+
+
+baixarCsv.addEventListener("click", function() {
+    if (!ultimoPedido) {
+        return;
+    }
+
+    baixarArquivo(
+        `pedido-${ultimoPedido.id}.csv`,
+        gerarCsv(ultimoPedido),
+        "text/csv;charset=utf-8"
+    );
+});
+
+
+// ========================================
+// FINALIZAR PEDIDO
+// ========================================
+
+finalizarPedido.addEventListener("click", function() {
+    if (carrinho.length === 0) {
+        alert("Seu carrinho está vazio!");
+        return;
+    }
+
+    const taxaCentavos = 0;
+
+    const subtotalCentavos = carrinho.reduce(
+        (soma, produto) =>
+            soma + calcularSubtotalCentavos(produto),
+        0
+    );
+
+    // Copia os itens antes de limpar o carrinho
+    const pedido = {
+        id: `BH-${Date.now()}`,
+        data: new Date().toISOString(),
+        itens: carrinho.map(produto => ({ ...produto })),
+        taxaCentavos: taxaCentavos,
+        totalCentavos: subtotalCentavos + taxaCentavos
+    };
+
+    // Só limpa o carrinho se conseguir salvar o pedido
+    try {
+        localStorage.setItem(
+            "ultimoPedido",
+            JSON.stringify(pedido)
+        );
+    } catch (erro) {
+        alert("Não foi possível salvar o pedido. Tente novamente.");
+        return;
+    }
+
+    ultimoPedido = pedido;
+
     carrinho = [];
-
     salvarCarrinho();
-
     mostrarCarrinho();
 
+    mostrarPedidoConcluido();
 });
+
+
+// Recupera a via do último pedido ao abrir a página
+mostrarPedidoConcluido();
 
 
 // ========================================
