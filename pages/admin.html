@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin | BurgerHouse</title>
+
+    <link rel="stylesheet" href="../assets/admin.css">
+    <script src="../scripts/admin.js" defer></script>
+</head>
+<body>
+    <main>
+        <header>
+            <div>
+                <h1>Painel administrativo</h1>
+                <p>Importe arquivos de pedidos para visualizar os dados.</p>
+            </div>
+
+            <a href="index.html">Voltar ao site</a>
+        </header>
+
+        <section class="painel">
+            <h2>Importar arquivo</h2>
+
+            <label for="arquivo">Selecione um arquivo CSV ou TXT:</label>
+
+            <input
+                type="file"
+                id="arquivo"
+                accept=".csv,.txt"
+            >
+
+            <p id="mensagem" role="status" aria-live="polite">
+                Nenhum arquivo selecionado.
+            </p>
+        </section>
+
+        <section id="resultado" class="painel" hidden>
+            <h2 id="nomeArquivo"></h2>
+
+            <div id="visualizacaoCsv" class="tabela-container" hidden>
+                <table>
+                    <thead id="cabecalho"></thead>
+                    <tbody id="corpoTabela"></tbody>
+                </table>
+            </div>
+
+            <pre id="visualizacaoTxt" hidden></pre>
+        </section>
+    </main>
+</body>
+</html>
